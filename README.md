@@ -13,12 +13,16 @@ Create a blog that has the following features
 		- Content
 		- Date Posted
 		- Author
+- **Create Post
+	- Page to create a blog post only when a user is logged in
+		- Title
+		- Content
 - **Login Page**
 	- Page to authroize users
 - **User Profile**
 	- Page to update Author information
 		- Display Name
-		- Picture
+		- Profile Image
 		- About Section
 
 ## Advanced Topics
@@ -32,6 +36,8 @@ Create a blog that has the following features
 	- Commenting on a blog anonymously
 - **Post to Facebook**
 	- Allow users to repost content of a blog onto facebook
+- **Save Drafts**
+	- Allow bloggers to create drafts without publishing to be viewed by everyone
 			
 # Example Layouts Using Bootstrap
 - Blog layout - http://getbootstrap.com/examples/blog/#
