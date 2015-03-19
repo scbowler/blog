@@ -34,7 +34,7 @@ Create a blog that has the following features
 	- Allow users to repost content of a blog onto facebook
 			
 # Example Layouts Using Bootstrap
-Blog layout - http://getbootstrap.com/examples/blog/#
-User Login - http://getbootstrap.com/examples/signin/
+- Blog layout - http://getbootstrap.com/examples/blog/#
+- User Login - http://getbootstrap.com/examples/signin/
 
 	
