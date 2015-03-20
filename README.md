@@ -43,4 +43,9 @@ Create a blog that has the following features
 - Blog layout - http://getbootstrap.com/examples/blog/#
 - User Login - http://getbootstrap.com/examples/signin/
 
+## Database layout
+
+- User db - first name, last name, username, id, total posts, password, last login, pic file loc, email, 
+
+- blog db - author, title, body, date created, date modified, blog id, 
 	
