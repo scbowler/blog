@@ -38,6 +38,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis dignissim ultrices. Sed tempus, eros sit amet euismod tincidunt, enim tortor tincidunt ligula, non rutrum mauris magna hendrerit risus. Duis condimentum libero iaculis erat feugiat, quis semper augue sodales. Morbi eget metus a felis gravida accumsan sit amet at risus. Sed ut augue rutrum, consequat neque id, molestie metus. In sed sapien at ipsum malesuada pellentesque in quis dolor. Aliquam eget consectetur ante. Nulla mollis, ipsum vitae malesuada mattis, sem diam elementum mi, at faucibus urna mi ac felis. Sed fermentum eros ut nisi condimentum, fermentum posuere mi congue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque molestie erat non condimentum tincidunt.</p>
                 </div>
                 <div>Written By: User568</div>
+                <button id='edit-post'>Edit This Blog</button>
             </div>
             <div class='example-blog'>
                 <div>My Blog Title 2</div>
@@ -50,6 +51,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis dignissim ultrices. Sed tempus, eros sit amet euismod tincidunt, enim tortor tincidunt ligula, non rutrum mauris magna hendrerit risus. Duis condimentum libero iaculis erat feugiat, quis semper augue sodales. Morbi eget metus a felis gravida accumsan sit amet at risus. Sed ut augue rutrum, consequat neque id, molestie metus. In sed sapien at ipsum malesuada pellentesque in quis dolor. Aliquam eget consectetur ante. Nulla mollis, ipsum vitae malesuada mattis, sem diam elementum mi, at faucibus urna mi ac felis. Sed fermentum eros ut nisi condimentum, fermentum posuere mi congue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque molestie erat non condimentum tincidunt.</p>
                 </div>
                 <div>Written By: User568</div>
+                <button id='edit-post'>Edit This Blog</button>
             </div>
           </section>
       </section>

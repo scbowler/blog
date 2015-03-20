@@ -14,7 +14,7 @@
         <section id="introduction">
             <h1>Welcome to The Blog</h1>
             <h3>New to The Blog?</h3>
-            <p>Sign up for a free account or view postings as guest</p>
+            <p>Sign up for a free account or view public postings as guest</p>
             
             <h3>Not new? Welcome Back!</h3>
             <p>Sign in and enjoy</p>                    
@@ -27,7 +27,7 @@
                 <button type="button">Login</button>
             </form>
             <div id="login-links">
-                <button id='guest-btn'>Login as Guest</button>
+                <button id='guest-btn'>Continue as Guest</button>
                 <a href="">Register</a>
                 <a href="">Forgot Password</a>
             </div>
