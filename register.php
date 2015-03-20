@@ -14,12 +14,12 @@
         <section id="register-area">
            <h1>Register For a New Account</h1>
             <form id="new-account">
-                <input type="text" name="username" placeholder="Choose Username">
+                <input type="text" name="penName" placeholder="Choose a Pen Name">
+                <input type="text" name="email" placeholder="Enter Email">
                 <input type="text" name="firstName" Placeholder="First Name">
                 <input type="text" name="lastName" placeholder="Last Name">
                 <input type="password" name="password" placeholder="Choose Password">
                 <input type="password" name="confPass" placeholder="Confirm Password">
-                <input type="text" name="email" placeholder="Enter Email">
                 <button type="button">Register</button> 
             </form>
             <div id="register-errors"></div>

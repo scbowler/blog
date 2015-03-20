@@ -47,5 +47,5 @@ Create a blog that has the following features
 
 - User db - first name, last name, username, id, total posts, password, last login, pic file loc, email, 
 
-- blog db - author, title, body, date created, date modified, blog id, 
+- blog db - author, title, body, date created, date modified, blog id, private/public
 	
