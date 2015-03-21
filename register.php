@@ -22,7 +22,9 @@
                 <input type="password" name="confPass" placeholder="Confirm Password">
                 <button type="button">Register</button> 
             </form>
-            <div id="register-errors"></div>
+            <div id="register-errors">
+                
+            </div>
         </section>
     </body>
 </html>

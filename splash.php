@@ -21,15 +21,26 @@
         </section>
        
         <section id="login-area">
-            <form id="login-form">
+            <form action='actions/login.php' method='post' id="login-form">
                 <input type="text" name="username" placeholder="Enter Username">
                 <input type="password" name="password" placeholder="Enter Password">
-                <button type="button">Login</button>
+                <button>Login</button>
             </form>
             <div id="login-links">
                 <button id='guest-btn'>Continue as Guest</button>
-                <a href="">Register</a>
+                <a href="register.php">Register</a>
                 <a href="">Forgot Password</a>
+            </div>
+            <div id="login-errors">
+                <?php 
+                    if(isset($_SESSION['errors'])){
+                        echo "<h3>Login failed:</h3>";
+                        foreach($_SESSION['errors'] as $errors){
+                            echo "<p>-$errors</p>";
+                        }
+                    session_unset();
+                    }
+                ?>
             </div>
         </section>
     </body>

@@ -8,9 +8,9 @@ $output = [];
 
 $output['success'] = false;
 
-if(isset($_POST[])){
+if(isset($_POST)){
     if($_POST['email'] === ''){
-        $errors[] = "Usernam blank";
+        $errors[] = "Username blank";
     }else{
         $email = clean($_POST['email']);
         $query = "SELECT email FROM users WHERE email='$email'";
@@ -36,9 +36,10 @@ if(isset($_POST[])){
     }else{
         $fname = clean($_POST['firstName']);
     }
-    if($_POST['lastName' === '']){
-        $lname = clean($_POST['lastName']);
+    if($_POST['lastName'] === ''){
         $errors[] = "Last name blank";   
+    }else{
+        $lname = clean($_POST['lastName']);
     }
     if($_POST['password'] === '' || $_POST['confPass'] === ''){
         $errors[] = "One or password fields blank";
@@ -56,7 +57,7 @@ if($errors === []){
     $query = "INSERT INTO users (email, penName, password, firstName, lastName, created, lastLogin) VALUES ('$email', '$penName', '$password', '$fname', '$lname', '$dateCreated', '0')";
     
     $result = mysqli_query($CONN, $query);
-    if(mysqli_num_rows($result) > 0){
+    if(mysqli_affected_rows($CONN) > 0){
         $output['success'] = true;
         $output['msgs'] = 'User created successfuly';
     }else{
@@ -64,7 +65,9 @@ if($errors === []){
     }
 }
 
-$output['msgs'] = $errors;
+if(!isset($output['msgs'])){
+    $output['msgs'] = $errors;
+}
 
 echo json_encode($output);
 

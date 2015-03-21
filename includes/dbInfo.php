@@ -1,5 +1,5 @@
 <?php
 
-$CONN = mysqli_connect('localhost', 'rooot', '', 'blog_db');
+$CONN = mysqli_connect('localhost', 'root', '', 'blog_db');
 
 ?>
