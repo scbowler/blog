@@ -1,21 +1,24 @@
 <?php 
 session_start();
+date_default_timezone_set('America/Los_Angeles');
 require_once('../includes/dbInfo.php');
 require_once('../includes/functions.php');
 
 $errors = [];
 
 if(isset($_POST)){
+    $errors[] = $_POST;
     if(isset($_POST['guest'])){
-        $_SESSION['userinfo'] = [penName=>'Guest', status=>1];
-        header('location: index.php');
+        $_SESSION['userinfo'] = [penName=>'Guest', status=>1, firstName=>'Guest'];
+        header('location: ../index.php');
+        exit();
     }
     
     $user = clean($_POST['username']);
     $pass = sha1($_POST['password']);
-    $query = "SELECT penName FROM users WHERE ";
+    $query = "SELECT penName, status, fails FROM users WHERE ";
     
-    if(strpos('@', $user) === false){
+    if(strpos($user, '@') === false){
         $subquery = "penName='$user' ";
     }else{
         $subquery = "email='$user' ";
@@ -29,16 +32,19 @@ if(isset($_POST)){
         
         $rows = mysqli_fetch_assoc($result);
         $penName = $rows['penName'];
+        $status = $rows['status'];
+        $fails = $rows['fails'];
         $query = "SELECT * FROM users WHERE penName='$penName' AND password='$pass'";
         $result = mysqli_query($CONN, $query);
+        $numRows = mysqli_num_rows($result);
         
-        if(mysqli_num_rows($result) === 1){ 
+        if($numRows === 1 && $status >= -1){ 
             
             $nowTime = time();
-            $query = "UPDATE users SET status='1', lastLogin='$nowTime' WHERE penName='".$_SESSION['userinfo']['penName']."'";
+            $query = "UPDATE users SET status='1', lastLogin='$nowTime', fails='0' WHERE penName='$penName'";
             mysqli_query($CONN, $query);
             
-            if(mysqli_affected_rows === 1){
+            if(mysqli_affected_rows($CONN) === 1){
                 $_SESSION['userinfo'] = mysqli_fetch_assoc($result);
                 $_SESSION['userinfo']['password'] = '*****';
                 $_SESSION['userinfo']['status'] = 1;
@@ -47,9 +53,19 @@ if(isset($_POST)){
                 exit();
             }else{
                 $errors[] = 'Error logging in';
+                //$errors[] = $query;
             }
+        }elseif($numRows == 1 && $status == -2){
+            $errors[] = 'Account locked, you have been sent an email to recover account.';
         }else{
-            $query = "UPDATE users SET status='-1' WHERE penName='$penName'";
+            $fails++;
+            
+            if($fails > 6){
+                $query = "UPDATE users SET status='-2' WHERE penName='$penName'";
+            }else{
+                $query = "UPDATE users SET status='-1', fails='$fails' WHERE penName='$penName'";
+            }
+            mysqli_query($CONN, $query);
             $errors[] = 'Invalid user or password';
         }
         

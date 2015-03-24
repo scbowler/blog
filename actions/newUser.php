@@ -10,7 +10,9 @@ $output['success'] = false;
 
 if(isset($_POST)){
     if($_POST['email'] === ''){
-        $errors[] = "Username blank";
+        $errors[] = "Email blank";
+    }elseif(strpos($user, '@') === false){
+        $errors[] = "Invalid email";
     }else{
         $email = clean($_POST['email']);
         $query = "SELECT email FROM users WHERE email='$email'";
@@ -42,7 +44,7 @@ if(isset($_POST)){
         $lname = clean($_POST['lastName']);
     }
     if($_POST['password'] === '' || $_POST['confPass'] === ''){
-        $errors[] = "One or password fields blank";
+        $errors[] = "One or more password fields blank";
     }elseif($_POST['password'] !== $_POST['confPass']){
         $errors[] = "Passwords don't match";
     }else{

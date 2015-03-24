@@ -1,58 +1,45 @@
-<?php session_start(); ?>
+<?php session_start(); 
+date_default_timezone_set('America/Los_Angeles');
+require_once('includes/verifyUser.php');
+$_SESSION['page'] = 'profile';
+?>
 
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Welome - Please login</title>
+        <title><?php echo $_SESSION['userinfo']['firstName']; ?>'s Profile Page</title>
         <link rel="stylesheet" href="assets/main.css">
         <script src="assets/jquery-2.1.3.min.js"></script>
         <script src="assets/main.js"></script>
     </head>
-    <body>
+    <body onload=loadBlogs()>
         <?php require_once('includes/header.php'); ?>
         
        <aside id=user-info>
            <h3>Your Info</h3>
-           <ul>
-               <li>Username: j.smith24</li>
-               <li>First Name: John</li>
-               <li>Last Name: Smith</li>
-               <li>Email: js89@mail.com</li>
-               <li>Total Posts: 342</li>
-               <li>Meember Since: 2/15/2015</li>
-           </ul>
+           
+               <img src=<?php echo $_SESSION['userinfo']['pic']; ?>>
+               <button id='update-pic'>Update Profile Pic</button>
+               <ul>
+                   <li>Pen Name: <?php echo $_SESSION['userinfo']['penName']; ?></li>
+                   <li>First Name: <?php echo $_SESSION['userinfo']['firstName']; ?></li>
+                   <li>Last Name: <?php echo $_SESSION['userinfo']['lastName']; ?></li>
+                   <li>Email: <?php echo $_SESSION['userinfo']['email']; ?></li>
+                   <li>Total Posts: <?php echo $_SESSION['userinfo']['posts']; ?></li>
+                   <li>Meember Since: <?php echo date('m/d/Y', $_SESSION['userinfo']['created']); ?></li>
+                   <li>Last Login: <?php echo date('m/d/Y g:i a', $_SESSION['userinfo']['lastLogin']); ?></li>
+               </ul>
        </aside>
+       
+       <section id="user-actions">
+           <button id="new-post" value="new">New Post</button>
+           <a href="drafts.php"><button id="drafts">View Drafts</button></a>
+       </section>
        
       <section id="users-blogs">
           <h1>Everything You've Posted So Far...</h1>
           <section class="blog-list">
-              <div class='example-blog'>
-                <div>My Blog Title 1</div>
-                <div>Created on 3/19/2015 @ 5:15pm</div>
-                <div>Last updated 3/19/2015 @ 9:37pm</div>
-                <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis dignissim ultrices. Sed tempus, eros sit amet euismod tincidunt, enim tortor tincidunt ligula, non rutrum mauris magna hendrerit risus. Duis condimentum libero iaculis erat feugiat, quis semper augue sodales. Morbi eget metus a felis gravida accumsan sit amet at risus. Sed ut augue rutrum, consequat neque id, molestie metus. In sed sapien at ipsum malesuada pellentesque in quis dolor. Aliquam eget consectetur ante. Nulla mollis, ipsum vitae malesuada mattis, sem diam elementum mi, at faucibus urna mi ac felis. Sed fermentum eros ut nisi condimentum, fermentum posuere mi congue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque molestie erat non condimentum tincidunt.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis dignissim ultrices. Sed tempus, eros sit amet euismod tincidunt, enim tortor tincidunt ligula, non rutrum mauris magna hendrerit risus. Duis condimentum libero iaculis erat feugiat, quis semper augue sodales. Morbi eget metus a felis gravida accumsan sit amet at risus. Sed ut augue rutrum, consequat neque id, molestie metus. In sed sapien at ipsum malesuada pellentesque in quis dolor. Aliquam eget consectetur ante. Nulla mollis, ipsum vitae malesuada mattis, sem diam elementum mi, at faucibus urna mi ac felis. Sed fermentum eros ut nisi condimentum, fermentum posuere mi congue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque molestie erat non condimentum tincidunt.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis dignissim ultrices. Sed tempus, eros sit amet euismod tincidunt, enim tortor tincidunt ligula, non rutrum mauris magna hendrerit risus. Duis condimentum libero iaculis erat feugiat, quis semper augue sodales. Morbi eget metus a felis gravida accumsan sit amet at risus. Sed ut augue rutrum, consequat neque id, molestie metus. In sed sapien at ipsum malesuada pellentesque in quis dolor. Aliquam eget consectetur ante. Nulla mollis, ipsum vitae malesuada mattis, sem diam elementum mi, at faucibus urna mi ac felis. Sed fermentum eros ut nisi condimentum, fermentum posuere mi congue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque molestie erat non condimentum tincidunt.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis dignissim ultrices. Sed tempus, eros sit amet euismod tincidunt, enim tortor tincidunt ligula, non rutrum mauris magna hendrerit risus. Duis condimentum libero iaculis erat feugiat, quis semper augue sodales. Morbi eget metus a felis gravida accumsan sit amet at risus. Sed ut augue rutrum, consequat neque id, molestie metus. In sed sapien at ipsum malesuada pellentesque in quis dolor. Aliquam eget consectetur ante. Nulla mollis, ipsum vitae malesuada mattis, sem diam elementum mi, at faucibus urna mi ac felis. Sed fermentum eros ut nisi condimentum, fermentum posuere mi congue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque molestie erat non condimentum tincidunt.</p>
-                </div>
-                <div>Written By: User568</div>
-                <button id='edit-post'>Edit This Blog</button>
-            </div>
-            <div class='example-blog'>
-                <div>My Blog Title 2</div>
-                <div>Created on 3/19/2015 @ 5:15pm</div>
-                <div>Last updated 3/19/2015 @ 9:37pm</div>
-                <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis dignissim ultrices. Sed tempus, eros sit amet euismod tincidunt, enim tortor tincidunt ligula, non rutrum mauris magna hendrerit risus. Duis condimentum libero iaculis erat feugiat, quis semper augue sodales. Morbi eget metus a felis gravida accumsan sit amet at risus. Sed ut augue rutrum, consequat neque id, molestie metus. In sed sapien at ipsum malesuada pellentesque in quis dolor. Aliquam eget consectetur ante. Nulla mollis, ipsum vitae malesuada mattis, sem diam elementum mi, at faucibus urna mi ac felis. Sed fermentum eros ut nisi condimentum, fermentum posuere mi congue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque molestie erat non condimentum tincidunt.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis dignissim ultrices. Sed tempus, eros sit amet euismod tincidunt, enim tortor tincidunt ligula, non rutrum mauris magna hendrerit risus. Duis condimentum libero iaculis erat feugiat, quis semper augue sodales. Morbi eget metus a felis gravida accumsan sit amet at risus. Sed ut augue rutrum, consequat neque id, molestie metus. In sed sapien at ipsum malesuada pellentesque in quis dolor. Aliquam eget consectetur ante. Nulla mollis, ipsum vitae malesuada mattis, sem diam elementum mi, at faucibus urna mi ac felis. Sed fermentum eros ut nisi condimentum, fermentum posuere mi congue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque molestie erat non condimentum tincidunt.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis dignissim ultrices. Sed tempus, eros sit amet euismod tincidunt, enim tortor tincidunt ligula, non rutrum mauris magna hendrerit risus. Duis condimentum libero iaculis erat feugiat, quis semper augue sodales. Morbi eget metus a felis gravida accumsan sit amet at risus. Sed ut augue rutrum, consequat neque id, molestie metus. In sed sapien at ipsum malesuada pellentesque in quis dolor. Aliquam eget consectetur ante. Nulla mollis, ipsum vitae malesuada mattis, sem diam elementum mi, at faucibus urna mi ac felis. Sed fermentum eros ut nisi condimentum, fermentum posuere mi congue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque molestie erat non condimentum tincidunt.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis dignissim ultrices. Sed tempus, eros sit amet euismod tincidunt, enim tortor tincidunt ligula, non rutrum mauris magna hendrerit risus. Duis condimentum libero iaculis erat feugiat, quis semper augue sodales. Morbi eget metus a felis gravida accumsan sit amet at risus. Sed ut augue rutrum, consequat neque id, molestie metus. In sed sapien at ipsum malesuada pellentesque in quis dolor. Aliquam eget consectetur ante. Nulla mollis, ipsum vitae malesuada mattis, sem diam elementum mi, at faucibus urna mi ac felis. Sed fermentum eros ut nisi condimentum, fermentum posuere mi congue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque molestie erat non condimentum tincidunt.</p>
-                </div>
-                <div>Written By: User568</div>
-                <button id='edit-post'>Edit This Blog</button>
-            </div>
           </section>
       </section>
       

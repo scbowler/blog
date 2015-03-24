@@ -27,7 +27,9 @@
                 <button>Login</button>
             </form>
             <div id="login-links">
-                <button id='guest-btn'>Continue as Guest</button>
+                <form action='actions/login.php' method='post' id='guest-form'>
+                    <button name="guest">Continue as Guest</button>
+                </form>
                 <a href="register.php">Register</a>
                 <a href="">Forgot Password</a>
             </div>
@@ -39,6 +41,10 @@
                             echo "<p>-$errors</p>";
                         }
                     session_unset();
+                    }elseif(isset($_SESSION['logout'])){
+                        echo "<h3>$_SESSION[logout]</h3>";
+                        session_unset();
+                        session_destroy();
                     }
                 ?>
             </div>
