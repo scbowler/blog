@@ -7,7 +7,7 @@ require_once('../includes/functions.php');
 $errors = [];
 
 if(isset($_POST)){
-    $errors[] = $_POST;
+    //$errors[] = $_POST;
     if(isset($_POST['guest'])){
         $_SESSION['userinfo'] = [penName=>'Guest', status=>1, firstName=>'Guest'];
         header('location: ../index.php');

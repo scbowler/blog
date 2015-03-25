@@ -12,7 +12,7 @@
     <body>
        
         <section id="introduction">
-            <h1>Welcome to The Blog</h1>
+            <h1 class='logo-font'>The Blog</h1>
             <h3>New to The Blog?</h3>
             <p>Sign up for a free account or view public postings as guest</p>
             
@@ -22,23 +22,26 @@
        
         <section id="login-area">
             <form action='actions/login.php' method='post' id="login-form">
-                <input type="text" name="username" placeholder="Enter Username">
-                <input type="password" name="password" placeholder="Enter Password">
-                <button>Login</button>
+                <input type="text" name="username" placeholder="Enter Username or Email"><br>
+                <input type="password" name="password" placeholder="Enter Password"><br>
+                <button class='btn'>Login</button>
             </form>
+            <h3>&#45; OR &#45;</h3>
             <div id="login-links">
                 <form action='actions/login.php' method='post' id='guest-form'>
-                    <button name="guest">Continue as Guest</button>
+                    <button class='btn' name="guest">Continue as Guest</button>
                 </form>
-                <a href="register.php">Register</a>
-                <a href="">Forgot Password</a>
+                <div id="links">
+                    <a href="register.php">Register</a>
+                    <a href="">Forgot Password?</a>
+                </div>
             </div>
             <div id="login-errors">
                 <?php 
                     if(isset($_SESSION['errors'])){
-                        echo "<h3>Login failed:</h3>";
-                        foreach($_SESSION['errors'] as $errors){
-                            echo "<p>-$errors</p>";
+                        echo "<h3 class='fail'>Login failed:</h3>";
+                        foreach($_SESSION['errors'] as $msgs){
+                            echo "<p class='fail'>$msgs</p>";
                         }
                     session_unset();
                     }elseif(isset($_SESSION['logout'])){

@@ -11,7 +11,7 @@ $output['success'] = false;
 if(isset($_POST)){
     if($_POST['email'] === ''){
         $errors[] = "Email blank";
-    }elseif(strpos($user, '@') === false){
+    }elseif(strpos($_POST['email'], '@') === false){
         $errors[] = "Invalid email";
     }else{
         $email = clean($_POST['email']);
@@ -24,6 +24,8 @@ if(isset($_POST)){
     }
     if($_POST['penName'] === ''){
         $errors[] = "Pen name blank";
+    }elseif(strpos($_POST['penName'], ' ') !== false){
+        $errors[] = "Invalid pen name - No spaces allowed";
     }else{
         $penName = clean($_POST['penName']);
         $query = "SELECT penName FROM users WHERE penName='$penName'";

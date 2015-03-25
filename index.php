@@ -21,7 +21,7 @@ if(!isset($_SESSION['userinfo'])){
         <?php require_once('includes/header.php'); ?>
         
         <aside>
-            <h2>User's Online</h2>
+            <h2 class='logo-font'>Users Online</h2>
             <div id="users-online">
                 <ul></ul>
             </div>

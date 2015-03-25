@@ -17,31 +17,29 @@ $_SESSION['page'] = 'profile';
         <?php require_once('includes/header.php'); ?>
         
        <aside id=user-info>
-           <h3>Your Info</h3>
+           <h2 class='logo-font'>Your Info</h2>
            
                <img src=<?php echo $_SESSION['userinfo']['pic']; ?>>
-               <button id='update-pic'>Update Profile Pic</button>
+               <button class='btn2' id='update-pic'>Update Profile Pic</button>
                <ul>
-                   <li>Pen Name: <?php echo $_SESSION['userinfo']['penName']; ?></li>
-                   <li>First Name: <?php echo $_SESSION['userinfo']['firstName']; ?></li>
-                   <li>Last Name: <?php echo $_SESSION['userinfo']['lastName']; ?></li>
-                   <li>Email: <?php echo $_SESSION['userinfo']['email']; ?></li>
-                   <li>Total Posts: <?php echo $_SESSION['userinfo']['posts']; ?></li>
-                   <li>Meember Since: <?php echo date('m/d/Y', $_SESSION['userinfo']['created']); ?></li>
-                   <li>Last Login: <?php echo date('m/d/Y g:i a', $_SESSION['userinfo']['lastLogin']); ?></li>
+                   <li><strong>Pen Name:</strong> <?php echo $_SESSION['userinfo']['penName']; ?></li>
+                   <li><strong>First Name:</strong> <?php echo $_SESSION['userinfo']['firstName']; ?></li>
+                   <li><strong>Last Name:</strong> <?php echo $_SESSION['userinfo']['lastName']; ?></li>
+                   <li><strong>Email:</strong> <?php echo $_SESSION['userinfo']['email']; ?></li>
+                   <li><strong>Total Posts:</strong> <?php echo $_SESSION['userinfo']['posts']; ?></li>
+                   <li><strong>Meember Since:</strong> <?php echo date('m/d/Y', $_SESSION['userinfo']['created']); ?></li>
+                   <li><strong>Last Login:</strong> <?php echo date('m/d/Y g:i a', $_SESSION['userinfo']['lastLogin']); ?></li>
                </ul>
        </aside>
-       
-       <section id="user-actions">
-           <button id="new-post" value="new">New Post</button>
-           <a href="drafts.php"><button id="drafts">View Drafts</button></a>
+      
+      <section class="blog-list">
+      <section id="user-actions">
+           <button class='btn' id="new-post" value="new">New Post</button>
+           <a href="drafts.php"><button class='btn' id="drafts">View Drafts</button></a>
        </section>
-       
-      <section id="users-blogs">
-          <h1>Everything You've Posted So Far...</h1>
-          <section class="blog-list">
-          </section>
+       <h1>Everything You've Posted So Far...</h1>
       </section>
+      
       
      <?php require_once("includes/footer.php"); ?>
     </body>

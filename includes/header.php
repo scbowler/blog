@@ -1,10 +1,8 @@
 <section id="main-header">
     
-    <div>Awesome Logo</div>
+    <div class='logo-font'>The Blog</div>
     
-    <h1>The Blog</h1>
-    
-    <h3>Hello, <?php echo $_SESSION['userinfo']['firstName']; ?></h3>
+    <div id="hello" class='logo-font'>Hello, <?php echo $_SESSION['userinfo']['firstName']; ?></div>
     
     <ul id="main-nav">
         <li><a href="index.php">Home</a></li>

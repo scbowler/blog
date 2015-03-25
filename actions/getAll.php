@@ -6,7 +6,7 @@ date_default_timezone_set('America/Los_Angeles');
 $output = [];
 $output['success'] = false;
 $errors = [];
-$delBtn = "<button class='edit-post' value='edit'>Edit This Blog</button>";
+$delBtn = "<button class='btn2 edit-post' value='edit'>Edit This Blog</button>";
 
 if(isset($_POST)){
     if(isset($_SESSION['userinfo']['penName'])){
@@ -36,6 +36,9 @@ if(isset($_POST)){
     }
     
     if($errors === []){
+        
+        $query .= " ORDER BY `blogs`.`created` DESC";
+        
         $results = mysqli_query($CONN, $query);
         
         if(mysqli_num_rows($results) > 0){
@@ -44,7 +47,7 @@ if(isset($_POST)){
             while($row = mysqli_fetch_assoc($results)){
                 $created = formatDate($row['created']);
                 $modified = formatDate($row['modified']);
-                $blogs[] = "<div class='blog-post'><div class='blog-title'>$row[title]</div><div>Created on: $created</div><div>Last updated: $modified</div><div class='blog-body'>$row[body]</div><div>Written By: $row[author]</div>$delBtn<div class='blog-id'>$row[blogID]</div></div>";
+                $blogs[] = "<div class='blog-post'><div class='blog-title logo-font'>$row[title]</div><div class='blog-body'>$row[body]</div><div class='blog-author'>Written By: $row[author]</div><div class='blog-date'>Created on: $created<br>Last updated: $modified</div>$delBtn<div class='blog-id'>Blog ID: $row[blogID]</div></div>";
                 
                 $count++;
             }
@@ -53,7 +56,7 @@ if(isset($_POST)){
                 $blog .= 's';
             }
             $output['success'] = true;
-            $output['msgs'] = "$count $blog found";
+            $output['msgs'] = "$count $blog found".$query;
             $output['blogs'] = $blogs; 
         }else{
             $output['msgs'][] = 'No Blogs To Show';

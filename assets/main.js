@@ -6,7 +6,7 @@ $(document).ready(function(){
     //var userRefresh = setInterval(getOnlineUsers, 5000);
     
     $("body").on("click", "#close-form", function(){
-        $("#newPost-form").remove();
+        $("#backdrop").remove();
     });
     
     $(".blog-list").on("click", ".edit-post", function(ele){
@@ -78,11 +78,11 @@ function getOnlineUsers(){
         dataType: 'json',
         cache: false,
         success: function(data){
-            
+        
             onlineUsers = data;
             $("#users-online > ul").html('');
             for(var user in data){
-                var userLi = "<li>" + data[user] + "</li>";
+                var userLi = "<li><img src=" + data[user].pic + "><div>" + data[user].penName + "</div></li>";
                 $(userLi).appendTo("#users-online > ul");
             }
         }
@@ -144,12 +144,15 @@ function submitPost(form){
 }
 
 function loadBlogs(){
+    $('#backdrop').remove();
+    $('.blog-post').remove();
     $.ajax({
         url: 'actions/getAll.php',
         method: 'post',
         dataType: 'json',
         cache: false,
         success: function(data){
+            console.log(data);
             var blogs = data.blogs;
             for(var key in blogs){
                 var post = $(blogs[key]);

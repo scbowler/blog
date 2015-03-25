@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('../includes/dbInfo.php');
+require_once('../includes/functions.php');
 
 $output = [];
 $output['success'] = false;
@@ -19,13 +20,13 @@ if(isset($_POST)){
     if($_POST['title'] === ''){
         $errors[] = 'Title blank';
     }else{
-        $title = $_POST['title'];
+        $title = clean($_POST['title']);
     }
     
     if($_POST['body'] === ''){
         $errors[] = 'Body blank';
     }else{
-        $body = $_POST['body'];
+        $body = clean($_POST['body']);
     }
     
     switch($_POST['status']){

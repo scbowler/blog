@@ -1,0 +1,398 @@
+@import url(http://fonts.googleapis.com/css?family=Chango);
+
+body {
+    background-color: #f0fff0;
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.logo-font {
+    color: white;
+    font-family: 'Chango', cursive;
+    text-align: center;
+    text-shadow: 2px 1px 2px black, 6px 4px 3px green, -5px -2px 6px lightgreen;
+}
+
+.btn, .btn2 {
+    background-color: rgba(23, 85, 23, .3);
+    border: none;
+    box-shadow: 3px 3px 4px black, 6px 6px 14px green, -3px -3px 18px white;
+    text-shadow: 2px 2px 3px black, 4px 4px 5px green, -1px -1px 5px lightgreen;
+    font-family: 'Chango', cursive;
+    border-radius: 6px;
+    color: green;
+    cursor: pointer;
+    padding-bottom: 6px;
+    letter-spacing: .7px;
+}
+
+.btn2 {
+    color: black;
+    background-color: rgba(23, 85, 23, .3);
+    box-shadow: 3px 3px 4px black, 6px 6px 14px green, -3px -3px 18px white;
+    text-shadow: 1px 1px 0px white, -2px 2px 1px green, -1px -1px 5px lightgreen;
+}
+
+/*
+    =========================
+    ==      Log in         ==
+    =========================
+*/
+
+#login-errors .fail{
+    color: red;
+    margin-left: 8px;
+    text-align: center;
+}
+
+#introduction {
+    display: inline-block;
+    width: 40%;
+    position: relative;
+    left: 10%;
+    font-family: sans-serif;
+}
+
+
+#introduction h1 {
+    margin-top: 18%;
+
+    font-size: 50px;
+    
+}
+
+#introduction h3 {
+    color: darkgreen;
+    font-size: 30px;
+}
+
+#introduction p {
+    color: green;
+    font-size: 18px;
+}
+
+#login-area {
+    background-color: rgba(23, 85, 23, .2);
+    display: inline-block;
+    width: 27.5%;
+    position: absolute;
+    right: 17%;
+    top: 18%;
+    box-shadow: 2px 2px 4px green;
+    padding: 25px 0;
+}
+
+#login-area input {
+    font-size: 18px;
+    width: 250px;
+    height: 26px;
+    margin: 15px;
+    position: relative;
+    padding-left: 6px;
+    left: 10%;
+}
+
+#login-area button {
+    position: relative;
+    left: 14%;
+    font-size: 16px;
+    width: 74%;
+    min-height: 35px;
+}
+
+#login-area h3 {
+    color: green;
+    font-family: 'Chango', cursive;
+    text-align: center;
+    width: 100%;
+}
+
+#links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#links a {
+    color: darkgreen;
+    font-size: 18px;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+/*
+    =========================
+    ==       Header        ==
+    =========================
+*/
+
+#main-header {
+    background-color: rgba(23, 85, 23, .4);
+    position: relative;
+    height: 80px;
+    border: 1px solid green;
+    margin-bottom: 30px;
+}
+
+#main-header > div {
+    font-size: 56px;
+    display: inline-block;
+    width: 400px;
+    position: relative;
+    left: 30%;
+}
+
+#main-header #hello {
+    font-size: 26px;
+    position: absolute;
+    bottom: 25%;
+    left: 0;
+}
+
+#main-nav {
+    position: relative;
+    list-style: none;
+    bottom: 45%;
+    left: 63%;
+}
+
+#main-nav li {
+    display: inline-block;    
+}
+
+#main-nav li a {
+    color: darkgreen;
+    text-decoration: none;
+    font-size: 25px;
+    margin-left: 15px;
+    text-shadow: 1px 1px 2px white;
+}
+
+/*
+    =========================
+    ==         Home        ==
+    =========================
+*/
+
+aside {
+    display: inline-block;
+    min-height: 400px;
+    width: 25%;
+    background-color: rgba(23, 85, 23, .4);
+    margin-left: 20px;
+    border: 2px solid darkgreen;
+    border-radius: 6px;
+}
+
+aside h2 {
+    font-size: 30px;
+}
+
+#users-online{
+    color: darkgreen;
+    text-shadow: 1px 1px 2px white;
+}
+
+#users-online ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+#users-online ul li{
+    margin: 20px 25px;
+    font-size: 25px;
+    position: relative;
+}
+
+#users-online ul li div{
+    display: inline-block;
+    width: 75%;
+    position: absolute;
+    top: 20px;
+}
+
+#users-online ul li img{
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    margin-right: 8px;
+}
+
+.blog-list {
+    width: 65%;
+    float: right;
+    margin-right: 3%;
+}
+
+.blog-post {
+    background-color: rgba(23, 85, 23, .3);
+    border-radius: 6px;
+    margin-bottom: 60px;
+}
+
+.blog-title, .blog-date, .blog-body, .blog-id {
+    background-color: rgba(23, 85, 23, .2);
+    border: 2px solid darkgreen;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.blog-title {
+    font-size: 34px;
+    padding: 10px 0 15px 0;
+}
+
+.blog-body {
+    padding: 25px;
+    text-align: justify;
+    text-indent: 20px;
+}
+
+.blog-date {
+    font-size: 20px;
+    padding: 6px 14px;
+    line-height: 30px;
+    color: darkgreen;
+    text-shadow: 1px 1px 2px white;
+    text-align: right;
+}
+
+.blog-author {
+    text-align: center;
+    font-size: 28px;
+    text-shadow: 1px 1px 2px white;
+    color: darkgreen;
+    padding-bottom: 8px;
+}
+
+.blog-id {
+    text-align: right;
+    padding-right: 5px;
+}
+
+/*
+    =========================
+    ==      profile        ==
+    =========================
+*/
+
+#user-info{
+    position: relative;
+}
+
+#user-info img {
+    max-width: 80%;
+    margin-left: 10%;
+}
+
+#update-pic {
+    background-color: rgba(173, 203, 173);
+    position: relative;
+    width: 80%;
+    min-height: 38px;
+    font-size: 18px;
+    left: 10%;
+    margin: 20px 0;
+}
+
+#user-info ul {
+    position: relative;
+    right: 6%;
+    list-style: none;
+    font-size: 18px;
+}
+
+#user-info li {
+    margin-bottom: 7px;
+}
+
+#new-post, #drafts {
+    position: relative;
+    width: 40%;
+    min-height: 45px;
+    font-size: 25px;
+    left: 10%;
+    margin: 20px 0;
+}
+
+#drafts {
+    margin-left: 25px;
+}
+
+.edit-post {
+    margin: 2% 0 3% 68%;
+    font-size: 22px;
+}
+
+
+/*
+    =========================
+    ==    Update Forms     ==
+    =========================
+*/
+
+#backdrop {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 30, 0, .8);
+}
+
+#newPost-form h1{
+    margin: 10px 0;
+}
+
+#newPost-form {
+    text-align: center;
+    font-size: 28px;
+    color: white;
+    position: relative;
+    background-color: rgba(0, 30, 0, .8);
+    width: 60%;
+    height: 100%;
+    margin: 0 auto;
+    border-radius: 6px;
+}
+
+#new-title {
+    position: relative;
+    width: 60%;
+    font-size: 26px;
+    padding-left: 8px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+#newPost-form textarea {
+    position: relative;
+    width: 80%;
+    height: 45%;
+    font-size: 18px;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+input[type=radio] {
+    border: 0px;
+    width: 1.6em;
+    height: 1.6em;
+    margin: 16px 14px 16px 20px;
+}
+
+#add-post, #close-form {
+    width: 35%;
+    font-size: 30px;
+    margin: 20px;
+}
+
+/*
+    =========================
+    ==       Footer        ==
+    =========================
+*/
+
+#main-footer {
+    clear: both;
+}
