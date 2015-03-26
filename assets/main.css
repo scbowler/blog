@@ -81,6 +81,7 @@ body {
     top: 18%;
     box-shadow: 2px 2px 4px green;
     padding: 25px 0;
+    text-align: center;
 }
 
 #login-area input {
@@ -90,12 +91,10 @@ body {
     margin: 15px;
     position: relative;
     padding-left: 6px;
-    left: 10%;
 }
 
 #login-area button {
     position: relative;
-    left: 14%;
     font-size: 16px;
     width: 74%;
     min-height: 35px;
@@ -208,12 +207,10 @@ aside h2 {
     display: inline-block;
     width: 75%;
     position: absolute;
-    top: 20px;
 }
 
 #users-online ul li img{
-    width: 50px;
-    height: 50px;
+    max-width: 50px;
     background-size: contain;
     margin-right: 8px;
 }
@@ -270,6 +267,20 @@ aside h2 {
     padding-right: 5px;
 }
 
+.blog-count {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 18px;
+    color: darkgreen;
+    border: 2px solid darkgreen;
+    border-radius: 50%;
+    background-color: rgb(141, 178, 141);
+    text-shadow: 1px 1px 2px white;
+    width: 50%;
+    position: relative;
+    left: 25%;
+}
+
 /*
     =========================
     ==      profile        ==
@@ -285,7 +296,7 @@ aside h2 {
     margin-left: 10%;
 }
 
-#update-pic {
+#update-pic, #update-profile {
     background-color: rgba(173, 203, 173);
     position: relative;
     width: 80%;
@@ -304,6 +315,17 @@ aside h2 {
 
 #user-info li {
     margin-bottom: 7px;
+}
+
+#user-info strong {
+    vertical-align: top;
+}
+
+#user-bio {
+    display: inline-block;
+    width: 64%;
+    padding: 5px;
+    padding-top: 0;
 }
 
 #new-post, #drafts {
@@ -381,10 +403,47 @@ input[type=radio] {
     margin: 16px 14px 16px 20px;
 }
 
-#add-post, #close-form {
-    width: 35%;
+#add-post, #close-form, #up-file {
+    min-width: 35%;
     font-size: 30px;
     margin: 20px;
+}
+
+#up-file {
+    margin-top: 90px;
+}
+
+#update-pic-form {
+    position: absolute;
+    left: 30%;
+    top: 30%;
+    background-color: rgba(0, 30, 0, .8);
+    width: 40%;
+    height: 204px;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
+
+input[type=file] {
+    position: absolute;
+    right: 59px;
+    top: 30px;
+    width: 390px;
+    height: 48px;
+    cursor: pointer;
+    color: white;
+    opacity: 0;
+    z-index: 10;
+    border: 1px solid white;
+}
+
+.file-cover {
+    font-size: 26px;
+    position: absolute;
+    right: 62px;
+    top: 34px;
+    width: 387px;
 }
 
 /*

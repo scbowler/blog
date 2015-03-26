@@ -23,7 +23,17 @@ $(document).ready(function(){
     });
     
     $("#update-pic").on("click", function(){
+        stopScroll();
         uploadForm();
+    });
+    
+    $("body").on("change", "input[type=file]", function(){
+        var fileName = "File: " + $(this).val().split('\\').pop();
+        
+        if(fileName === "File: "){
+            fileName = "Chose File To Upload";
+        }
+        $('.file-cover').val(fileName);
     });
     
     $("#new-account").on('click', 'button', function(){
@@ -145,7 +155,7 @@ function submitPost(form){
 
 function loadBlogs(){
     $('#backdrop').remove();
-    $('.blog-post').remove();
+    
     $.ajax({
         url: 'actions/getAll.php',
         method: 'post',
@@ -153,11 +163,15 @@ function loadBlogs(){
         cache: false,
         success: function(data){
             console.log(data);
+            $('.blog-post').remove();
+            $(".blog-count").remove();
             var blogs = data.blogs;
             for(var key in blogs){
                 var post = $(blogs[key]);
                 post.appendTo(".blog-list");
             }
+            $("<div class='blog-count'>" + data['msgs'] + "</div>").prependTo(".blog-list");
+            $("<div class='blog-count'>" + data['msgs'] + "</div>").appendTo(".blog-list");
             
         }
     });
@@ -194,4 +208,14 @@ function uploadPic(ele){
             $("#uploadedImg").attr("src", data['filepath']);
         }
     });
+}
+
+function stopScroll(){
+    $('body').on({
+    'mousewheel': function(e) {
+        if (e.target.id == 'el') return;
+        e.preventDefault();
+        e.stopPropagation();
+    }
+});
 }

@@ -29,7 +29,9 @@ $_SESSION['page'] = 'profile';
                    <li><strong>Total Posts:</strong> <?php echo $_SESSION['userinfo']['posts']; ?></li>
                    <li><strong>Meember Since:</strong> <?php echo date('m/d/Y', $_SESSION['userinfo']['created']); ?></li>
                    <li><strong>Last Login:</strong> <?php echo date('m/d/Y g:i a', $_SESSION['userinfo']['lastLogin']); ?></li>
+                   <li><strong>About Me:</strong><div id='user-bio'><?php echo $_SESSION['userinfo']['bio']; ?></div></li>
                </ul>
+               <button class='btn2' id='update-profile'>Update Profile</button>
        </aside>
       
       <section class="blog-list">

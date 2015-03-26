@@ -56,7 +56,7 @@ if(isset($_POST)){
                 $blog .= 's';
             }
             $output['success'] = true;
-            $output['msgs'] = "$count $blog found".$query;
+            $output['msgs'] = "$count $blog found";
             $output['blogs'] = $blogs; 
         }else{
             $output['msgs'][] = 'No Blogs To Show';
